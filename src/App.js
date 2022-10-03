@@ -1,9 +1,17 @@
 import "./App.css";
+import { StockDetailPage } from "./pages/StockDetailPage";
+import { StockOverViewPage } from "./pages/StockOverViewPage";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 
 function App() {
   return (
     <main className="container">
-      <h2 className="mt-5">Hello</h2>
+      <BrowserRouter>
+        <Routes>
+          <Route path="/" element={<StockOverViewPage />} />
+          <Route path="/detail/:symbol" element={<StockDetailPage />} />
+        </Routes>
+      </BrowserRouter>
     </main>
   );
 }
