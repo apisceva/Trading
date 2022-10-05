@@ -10,6 +10,10 @@ export const StockList = () => {
     return change > 0 ? "success" : "danger";
   };
 
+  const renderIcon = (change) => {
+    return change > 0 ? <BsFillCaretUpFill /> : <BsFillCaretDownFill />;
+  };
+
   useEffect(() => {
     let isMounted = true;
     const fetchData = async () => {
@@ -62,9 +66,10 @@ export const StockList = () => {
                 <td>{stockData.data.c}</td>
                 <td className={`text-${changeColor(stockData.data.d)}`}>
                   {stockData.data.d}
+                  {renderIcon(stockData.data.d)}
                 </td>
-                <td className={`text-${changeColor(stockData.data.dp)}`}>
-                  {stockData.data.dp}
+                <td className={`text-${changeColor(stockData.data.d)}`}>
+                  {stockData.data.dp} {renderIcon(stockData.data.d)}
                 </td>
                 <td>{stockData.data.h}</td>
                 <td>{stockData.data.l}</td>
