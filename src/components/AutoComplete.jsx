@@ -19,7 +19,7 @@ export const Autocomplete = () => {
       >
         {results.map((result) => {
           return (
-            <li className="dropdown-item">
+            <li key={result.symbol} className="dropdown-item">
               {result.description} {result.symbol}
             </li>
           );
